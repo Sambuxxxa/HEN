@@ -227,10 +227,8 @@
       const bgBase64 = getParam('bg');
 
       if (carBase64) {
-        const carEl = document.querySelector('.app .car');
-        if (carEl) {
-          carEl.style.backgroundImage = `url(${carBase64})`;
-        }
+        const carImg = document.getElementById('car');
+        if (carImg) carImg.src = carBase64;
       }
 
       if (bgBase64) {
