@@ -217,7 +217,29 @@
   </style>
 
   <script>
+    function getParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
     window.onload = () => {
+      const carBase64 = getParam('car');
+      const bgBase64 = getParam('bg');
+
+      if (carBase64) {
+        const carEl = document.querySelector('.app .car');
+        if (carEl) {
+          carEl.style.backgroundImage = `url(${carBase64})`;
+        }
+      }
+
+      if (bgBase64) {
+        const bgEl = document.querySelector('.app .background');
+        if (bgEl) {
+          bgEl.style.backgroundImage = `url(${bgBase64})`;
+        }
+      }
+
       const startBtn = document.getElementById("start");
       const progress = document.getElementById("progress");
       const road = document.getElementById("road");
